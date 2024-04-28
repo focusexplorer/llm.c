@@ -1,3 +1,5 @@
+.*
+!.gitignore
 .vscode/
 data/
 gpt2_124M.bin

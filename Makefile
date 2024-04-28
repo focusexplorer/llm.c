@@ -3,7 +3,7 @@ CFLAGS = -Ofast -fno-finite-math-only -Wno-unused-result -march=native
 LDFLAGS =
 LDLIBS = -lm
 INCLUDES =
-
+NVCC='/usr/local/cuda-11.0/bin/nvcc'
 # Check if OpenMP is available
 # This is done by attempting to compile an empty file with OpenMP flags
 # OpenMP makes the code a lot faster so I advise installing it
@@ -53,10 +53,10 @@ test_gpt2: test_gpt2.c
 
 # possibly may want to disable warnings? e.g. append -Xcompiler -Wno-unused-result
 train_gpt2cu: train_gpt2.cu
-	nvcc -O3 --use_fast_math $< -lcublas -lcublasLt -o $@
+	${NVCC} -O3 --use_fast_math $< -lcublas -lcublasLt -o $@
 
 test_gpt2cu: test_gpt2.cu
-	nvcc -O3 --use_fast_math $< -lcublas -lcublasLt -o $@
+	${NVCC} -O3 --use_fast_math $< -lcublas -lcublasLt -o $@
 
 clean:
 	rm -f train_gpt2 test_gpt2 train_gpt2cu test_gpt2cu
