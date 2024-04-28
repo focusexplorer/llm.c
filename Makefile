@@ -6,7 +6,8 @@ INCLUDES =
 CFLAGS_COND = -march=native
 
 # Find nvcc
-NVCC := $(shell which nvcc 2>/dev/null)
+# NVCC := $(shell which nvcc 2>/dev/null)
+NVCC := /usr/local/cuda-11.0/bin/nvcc
 
 # NVCC flags
 NVCC_FLAGS = -O3 --use_fast_math

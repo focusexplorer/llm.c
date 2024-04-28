@@ -1,3 +1,5 @@
+.*
+!.gitignore
 # dot files and such
 .vscode/
 
